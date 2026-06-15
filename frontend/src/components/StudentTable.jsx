@@ -13,7 +13,8 @@ export default function StudentTable({
   onDeleteClick,
   courses,
   loading,
-  onRefresh
+  onRefresh,
+  apiBaseUrl
 }) {
   const { total = 0, page = 1, limit = 10, pages = 1 } = pagination || {};
   const [searchInput, setSearchInput] = useState(filters.search || '');
@@ -228,7 +229,7 @@ export default function StudentTable({
                       <div className="flex items-center gap-3">
                         {student.photo_path ? (
                           <img
-                            src={`http://localhost:5001/${student.photo_path}`}
+                            src={`${apiBaseUrl}/${student.photo_path}`}
                             alt={student.name}
                             className="h-10 w-10 rounded-full object-cover border border-slate-700"
                             onError={(e) => {

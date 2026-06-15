@@ -263,6 +263,7 @@ export default function App() {
             courses={COURSES}
             loading={loadingStudents}
             onRefresh={handleSyncData}
+            apiBaseUrl={API_BASE_URL}
           />
         )}
       </main>
@@ -278,6 +279,7 @@ export default function App() {
         onSubmit={handleFormSubmit}
         courses={COURSES}
         submitting={submittingForm}
+        apiBaseUrl={API_BASE_URL}
       />
 
       {/* Student Details Drawer Modal */}
@@ -290,6 +292,7 @@ export default function App() {
           setFormOpen(true);
         }}
         onDeleteClick={(student) => setStudentToDelete(student)}
+        apiBaseUrl={API_BASE_URL}
       />
 
       {/* Custom Delete Confirmation Modal */}

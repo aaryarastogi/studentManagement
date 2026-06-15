@@ -7,7 +7,8 @@ export default function StudentForm({
   onClose,
   onSubmit,
   courses,
-  submitting
+  submitting,
+  apiBaseUrl
 }) {
   const [formData, setFormData] = useState({
     name: '',
@@ -42,7 +43,7 @@ export default function StudentForm({
         address: student.address || ''
       });
       if (student.photo_path) {
-        setPhotoPreview(`http://localhost:5001/${student.photo_path}`);
+        setPhotoPreview(`${apiBaseUrl}/${student.photo_path}`);
       } else {
         setPhotoPreview(null);
       }

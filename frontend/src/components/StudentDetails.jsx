@@ -1,7 +1,7 @@
 import React from 'react';
 import { X, Mail, Phone, MapPin, Calendar, BookOpen, GraduationCap, Edit, Trash2, ShieldAlert } from 'lucide-react';
 
-export default function StudentDetails({ student, isOpen, onClose, onEditClick, onDeleteClick }) {
+export default function StudentDetails({ student, isOpen, onClose, onEditClick, onDeleteClick, apiBaseUrl }) {
   if (!isOpen || !student) return null;
 
   // Format date helper
@@ -61,7 +61,7 @@ export default function StudentDetails({ student, isOpen, onClose, onEditClick, 
             <div className="relative h-28 w-28 rounded-full border-2 border-indigo-500/40 bg-slate-900 flex items-center justify-center overflow-hidden mb-4 shadow-xl">
               {student.photo_path ? (
                 <img
-                  src={`http://localhost:5001/${student.photo_path}`}
+                  src={`${apiBaseUrl}/${student.photo_path}`}
                   alt={student.name}
                   className="h-full w-full object-cover"
                   onError={(e) => {
