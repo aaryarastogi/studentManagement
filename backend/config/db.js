@@ -7,6 +7,7 @@ const pool = new Pool({
   user: process.env.DB_USER || 'aaryarastogi',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'student_management',
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 });
 
 pool.on('connect', () => {
